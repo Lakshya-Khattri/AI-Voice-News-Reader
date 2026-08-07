@@ -1,8 +1,9 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { connectDB } from './db.ts';
-import mainRouter from './routes/api.ts';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+
+import { connectDB } from "./db.js";
+import mainRouter from "./routes/api.js";
 
 dotenv.config();
 
@@ -13,10 +14,10 @@ app.use(express.json());
 
 connectDB();
 
-app.use('/api', mainRouter);
+app.use("/api", mainRouter);
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
